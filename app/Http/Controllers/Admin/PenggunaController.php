@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
 class PenggunaController extends Controller
@@ -11,8 +12,9 @@ class PenggunaController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.pengguna.index');
+    {   
+        $data['list_pengguna'] = Pengguna::all();
+        return view('admin.pengguna.index', $data);
     }
 
     /**
@@ -20,7 +22,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pengguna.create');
     }
 
     /**
@@ -28,7 +30,16 @@ class PenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pengguna = New Pengguna();
+        $pengguna->nama = $request->nama;
+        $pengguna->email = $request->email;
+        $pengguna->password = $request->password;
+        $pengguna->no_hp = $request->no_hp;
+        $pengguna->alamat = $request->alamat;
+        $pengguna->handleUploadPoto();
+        $pengguna->save();
+
+        return redirect('admin/pengguna')->with('success', 'Data pengguna berhasil ditambahkan.');
     }
 
     /**
@@ -36,7 +47,8 @@ class PenggunaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['pengguna'] = Pengguna::find($id);
+        return view('admin.pengguna.show', $data);
     }
 
     /**
@@ -44,7 +56,8 @@ class PenggunaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['pengguna'] = Pengguna::find($id);
+        return view('admin.pengguna.edit', $data);
     }
 
     /**
@@ -52,7 +65,16 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pengguna = Pengguna::find($id);
+        $pengguna->nama = $request->nama;
+        $pengguna->email = $request->email;
+        $pengguna->password = $request->password;
+        $pengguna->no_hp = $request->no_hp;
+        $pengguna->alamat = $request->alamat;
+        $pengguna->handleUploadPoto();
+        $pengguna->save();
+
+        return redirect('admin/pengguna')->with('success', 'Data pengguna berhasil diperbarui.');
     }
 
     /**
@@ -60,6 +82,9 @@ class PenggunaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pengguna = Pengguna::find($id);
+        $pengguna->delete();
+
+        return redirect('admin/pengguna')->with('success', 'Data pengguna berhasil dihapus.');
     }
 }

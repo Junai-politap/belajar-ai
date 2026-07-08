@@ -13,32 +13,18 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('admin') }}" class="nav-link"><span class="pcoded-micon"><i
+                    <a href="{{ url('pengguna') }}" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('admin/pengguna') }}" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-users"></i></span><span class="pcoded-mtext">Data User</span></a>
+                    <a href="{{ url('pengguna/prediksi-dokumen') }}" class="nav-link"><span class="pcoded-micon"><i
+                                class="feather icon-users"></i></span><span class="pcoded-mtext">Prediksi Dokumen</span></a>
                 </li>
-
-                 <li class="nav-item">
-                    <a href="{{ url('admin/kategori-dokumen') }}" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-list"></i></span><span class="pcoded-mtext">Data Kategori Dokumen</span></a>
-                </li>
+                
 
                 <li class="nav-item">
-                    <a href="{{ url('admin/dataset') }}" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-list"></i></span><span class="pcoded-mtext">Kelola Dataset</span></a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ url('admin/training') }}" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-list"></i></span><span class="pcoded-mtext">Training Model</span></a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ url('admin/riwayat-prediksi') }}" class="nav-link"><span class="pcoded-micon"><i
+                    <a href="{{ url('pengguna/riwayat-prediksi') }}" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-activity"></i></span><span class="pcoded-mtext">Riwayat Prediksi</span></a>
                 </li>
 

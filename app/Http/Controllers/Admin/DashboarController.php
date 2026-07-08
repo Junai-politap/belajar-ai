@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DatasetTraining;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
 class DashboarController extends Controller
@@ -12,7 +14,9 @@ class DashboarController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $data['user'] = Pengguna::all()->count();
+        $data['dataset'] = DatasetTraining::all()->count();
+        return view('admin.index', $data);
     }
 
     /**

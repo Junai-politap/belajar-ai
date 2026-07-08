@@ -3,11 +3,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ url('admin/pengguna/create') }}" class="btn btn-primary float-right"><span
-                    class="fa fa-plus"></span> Tambah Pengguna</a>
+                    <a href="{{ url('admin/kategori-dokumen/create') }}" class="btn btn-primary float-right"><span
+                    class="fa fa-plus"></span> Tambah Kategori</a>
 
 
-                    <h2>Data Pengguna</h2>
+                    <h5>Data Kategori Dokumen</h5>
                     
                 </div>
                 <div class="card-body table-border-style">
@@ -17,31 +17,29 @@
                                 <tr class="text-center">
                                     <th>No </th>
                                     <th>Aksi</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Poto</th>
+                                    <th>Nama Kategori</th>
+                                    <th>Deskripsi</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($list_pengguna as $pengguna)
+                                @foreach ($list_kategori_dokumen as $kategori_dokumen)
                                     <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{ url('admin/pengguna/' . $pengguna->id . '/show') }}" class="btn btn-md btn-info">Lihat</a>
-                                                <a href="{{ url('admin/pengguna/' . $pengguna->id . '/edit') }}" class="btn btn-md btn-warning">Edit</a>
-                                                <form action="{{ url('admin/pengguna/' . $pengguna->id) }}" method="POST" style="display: inline;">
+                                                <a href="{{ url('admin/kategori-dokumen/' . $kategori_dokumen->id . '/show') }}" class="btn btn-md btn-info">Lihat</a>
+                                                <a href="{{ url('admin/kategori-dokumen/' . $kategori_dokumen->id . '/edit') }}" class="btn btn-md btn-warning">Edit</a>
+                                                <form action="{{ url('admin/kategori-dokumen/' . $kategori_dokumen->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">Hapus</button>
+                                                    <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori_dokumen ini?')">Hapus</button>
                                                 </form>
                                             </div>
                                         </td>
-                                        <td>{{ $pengguna->nama }}</td>
-                                        <td>{{ $pengguna->email }}</td>
-                                        <td>
-                                            <img src="{{ url("public/$pengguna->poto") }}" alt="User Image" class="img-fluid" style="width: 30%;">
-                                        </td>
+                                        <td>{{ $kategori_dokumen->nama_kategori }}</td>
+                                        <td>{{ $kategori_dokumen->deskripsi }}</td>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>
