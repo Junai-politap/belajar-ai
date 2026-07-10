@@ -14,4 +14,9 @@ class KategoriDokumen extends Model
     {
         return $this->belongsTo(DatasetTraining::class, 'id');
     }
+
+     public function prediksiDokumen()
+    {
+        return $this->belongsTo(PrediksiDokumen::class, 'id');
+    }
 }

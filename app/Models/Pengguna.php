@@ -25,4 +25,8 @@ class Pengguna extends ModelAuthenticate
         }
     }
 
+    public function prediksiDokumen()
+    {
+        return $this->belongsTo(PrediksiDokumen::class, 'id');
+    }
 }

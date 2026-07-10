@@ -33,7 +33,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('admin/training') }}" class="nav-link"><span class="pcoded-micon"><i
+                    <a href="{{ url('admin/model-neive-bayes') }}" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-list"></i></span><span class="pcoded-mtext">Training Model</span></a>
                 </li>
 
